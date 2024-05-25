@@ -18,9 +18,15 @@ const sendUserUpdated = (req, res) => {
   res.end("Пользователь обновлен!");
 };
 
+const sendMe = (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(req.user));
+}
+
 module.exports = {
   sendAllUsers,
    sendUserCreated,
    sendUserDeleted,
    sendUserUpdated,
+   sendMe,
 };
