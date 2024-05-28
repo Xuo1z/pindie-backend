@@ -108,6 +108,13 @@ const checkIsGameExists = async (req, res, next) => {
   }
 };
 
+const checkIsVoteRequest = async (req, res, next) => {
+if (Object.keys(req.body).length === 1 && req.body.users) {
+  req.isVoteRequest = true;
+}
+next();
+};
+
 module.exports ={
   findAllGames,
    createGame,
@@ -118,4 +125,5 @@ module.exports ={
       checkIfCategoriesAvaliable,
       checkIfUsersAreSafe,
       checkIsGameExists,
+      checkIsVoteRequest,
     };
